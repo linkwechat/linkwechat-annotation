@@ -14,7 +14,7 @@ import org.apache.commons.logging.LogFactory;
  */
 public class DateUtils {
 
-    protected static final Log logger = LogFactory.getLog(DateUtils.class);
+    private static final Log logger = LogFactory.getLog(DateUtils.class);
 
     /**
      * MySQL日期格式

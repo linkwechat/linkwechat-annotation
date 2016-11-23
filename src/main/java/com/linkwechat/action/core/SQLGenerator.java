@@ -27,9 +27,17 @@ import com.linkwechat.action.util.StringUtils;
  */
 public class SQLGenerator {
 
-    private static final Log log = LogFactory.getLog(SQLGenerator.class);
+    private static final Log logger = LogFactory.getLog(SQLGenerator.class);
 
-    private static final String charset = "UTF-8";
+    private static String charset = "UTF-8";
+
+    public static String getCharset() {
+        return charset;
+    }
+
+    public static void setCharset(String charset) {
+        SQLGenerator.charset = charset;
+    }
 
     /**
      * 转义正则特殊字符
@@ -106,7 +114,7 @@ public class SQLGenerator {
 
             return valueStr;
         } catch (Exception e) {
-            log.error("Execute " + obj.getClass().getName() + "." + method + "() error!", e);
+            logger.error("Execute " + obj.getClass().getName() + "." + method + "() error!", e);
             throw e;
         }
     }
