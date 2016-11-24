@@ -174,7 +174,9 @@ public class SQLGenerator {
         Field[] fields = obj.getClass().getDeclaredFields();
         for (Field field : fields) {
             if (field.isAnnotationPresent(Id.class)) {
-                if (field.isAnnotationPresent(NotDBColumn.class)) {
+                if (field.getName().equals("serialVersionUID")) {
+                    continue;
+                } else if (field.isAnnotationPresent(NotDBColumn.class)) {
                     continue;
                 } else if (field.isAnnotationPresent(Column.class)) {
                     String value = getObjFieldValue(obj, field.getName());
